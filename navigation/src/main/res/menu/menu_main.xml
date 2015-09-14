@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navbar_subheader"
+            android:title="header">
+
+            <menu>
+                <item
+                    android:id="@+id/item1"
+                    android:orderInCategory="100"
+                    android:title="item 1"
+                    android:icon="@android:drawable/star_on"
+                    />
+
+                <item
+                    android:id="@+id/action_settings"
+                    android:orderInCategory="100"
+                    android:title="@string/action_settings"
+                    android:icon="@android:drawable/star_on"/>
+            </menu>
+
+        </item>
+    </group>
+
+</menu>

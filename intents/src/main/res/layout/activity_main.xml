@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnImplicitIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Implicit intent"/>
+
+    <Button
+        android:id="@+id/btnShowChooser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show chooser"/>
+
+    <Button
+        android:id="@+id/btnAddCalendarEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add event"/>
+
+    <Button
+        android:id="@+id/btnCapturePicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capture a picture"/>
+
+    <Button
+        android:id="@+id/btnOpenImageFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open image file"/>
+
+    <Button
+        android:id="@+id/btnOpenGeoLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open geo location"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

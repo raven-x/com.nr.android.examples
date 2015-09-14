@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Rubric name="rubric1">
+        <feature>1</feature>
+        <feature>2</feature>
+        <feature>3</feature>
+    </Rubric>
+    <Rubric name="rubric2">
+        <feature>11</feature>
+        <feature>21</feature>
+        <feature>31</feature>
+    </Rubric>
+</Root>

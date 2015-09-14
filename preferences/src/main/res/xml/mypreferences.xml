@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Common preferences">
+
+        <EditTextPreference
+            android:key="login"
+            android:summary="Enter login"
+            android:title="Login"
+            android:dialogTitle="Enter login"/>
+
+        <EditTextPreference
+            android:key="email"
+            android:summary="Enter email"
+            android:title="Email" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="my lovely lioness">
+
+        <ListPreference
+            android:key="lioness_preference"
+            android:title="lionesses list"
+            android:summary="lionesses list"
+            android:entries="@array/lionessList"
+            android:entryValues="@array/lionessList"/>
+
+        <CheckBoxPreference
+            android:key="wannaKiss"
+            android:title="want to kiss ?"
+            android:summary="click it if you want to kiss the pussy"
+            android:defaultValue="true"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>
