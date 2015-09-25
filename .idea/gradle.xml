@@ -5,7 +5,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="G:\Soft\AndroidStudio\gradle\gradle-2.4" />
+        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.4" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/async" />
             <option value="$PROJECT_DIR$/asyncapploader" />
+            <option value="$PROJECT_DIR$/asyncprogressdialog" />
             <option value="$PROJECT_DIR$/customtab" />
             <option value="$PROJECT_DIR$/dialogs" />
             <option value="$PROJECT_DIR$/flawors" />
