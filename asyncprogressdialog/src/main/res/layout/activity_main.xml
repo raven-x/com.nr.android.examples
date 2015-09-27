@@ -7,16 +7,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text"
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <Button
         android:id="@+id/runTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="run task"/>
+        android:text="run task spinnable"/>
+
+    <Button
+        android:id="@+id/runTaskWithProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="run task with progress"/>
 
 </LinearLayout>

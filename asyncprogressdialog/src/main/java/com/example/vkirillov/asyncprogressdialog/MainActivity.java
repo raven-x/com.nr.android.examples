@@ -1,52 +1,103 @@
 package com.example.vkirillov.asyncprogressdialog;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
+import com.nr.asyncprogressdialog.AbstractTaskWithProgressDialog;
+import com.nr.asyncprogressdialog.RetainedTaskFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView textView;
-    private Button btnAction;
-    private SampleAcyncTask task;
+    private Button mBtnActionSpinnable;
+    private Button mBtnActionProgress;
+    private RetainedTaskFragment mRetainedTaskFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.text);
-        btnAction = (Button) findViewById(R.id.runTask);
-        btnAction.setOnClickListener(new View.OnClickListener() {
+        mBtnActionSpinnable = (Button) findViewById(R.id.runTask);
+        mBtnActionSpinnable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                AbstractTaskWithProgressDialog sat = new AbstractTaskWithProgressDialog<Object, Object>(
+                        mRetainedTaskFragment, "SampleTask", "Running", "SampleTask", false) {
+
+                    @Override
+                    protected Object doInBackground(Object[] params) {
+                        try {
+                            Thread.sleep(10000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Object integer) {
+                        super.onPostExecute(integer);
+                        mBtnActionSpinnable.setEnabled(true);
+                        mBtnActionProgress.setEnabled(true);
+                    }
+
+                    @Override
+                    protected void onCancelled(Object o) {
+                        super.onCancelled(o);
+                        mBtnActionSpinnable.setEnabled(true);
+                        mBtnActionProgress.setEnabled(true);
+                    }
+
+                };
+                mBtnActionSpinnable.setEnabled(false);
+                mBtnActionProgress.setEnabled(false);
+                sat.execute();
+
             }
         });
-    }
+        mBtnActionProgress = (Button) findViewById(R.id.runTaskWithProgress);
+        mBtnActionProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AbstractTaskWithProgressDialog sat = new AbstractTaskWithProgressDialog<Object, Object>(
+                        mRetainedTaskFragment, "SampleTask", "Progress...", "SampleTaskWithProgress", true, 100) {
+                    @Override
+                    protected Object doInBackground(Object[] params) {
+                        for(int i=0;i<=100;i+=10){
+                            if(isCancelled()){
+                                return null;
+                            }
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            publishProgress(i+10);
+                        }
+                        return null;
+                    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+                    @Override
+                    protected void onPostExecute(Object integer) {
+                        super.onPostExecute(integer);
+                        mBtnActionSpinnable.setEnabled(true);
+                        mBtnActionProgress.setEnabled(true);
+                    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+                    @Override
+                    protected void onCancelled(Object o) {
+                        super.onCancelled(o);
+                        mBtnActionSpinnable.setEnabled(true);
+                        mBtnActionProgress.setEnabled(true);
+                    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+                };
+                mBtnActionSpinnable.setEnabled(false);
+                mBtnActionProgress.setEnabled(false);
+                sat.execute();
+            };
+        });
 
-        return super.onOptionsItemSelected(item);
+        mRetainedTaskFragment = RetainedTaskFragment.establishRetainedMonitoredFragment(MainActivity.this);
     }
 }
