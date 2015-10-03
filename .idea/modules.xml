@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/customtab/customtab.iml" filepath="$PROJECT_DIR$/customtab/customtab.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialogs/dialogs.iml" filepath="$PROJECT_DIR$/dialogs/dialogs.iml" />
       <module fileurl="file://$PROJECT_DIR$/flawors/flawors.iml" filepath="$PROJECT_DIR$/flawors/flawors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/floatingbutton/floatingbutton.iml" filepath="$PROJECT_DIR$/floatingbutton/floatingbutton.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragments/fragments.iml" filepath="$PROJECT_DIR$/fragments/fragments.iml" />
       <module fileurl="file://$PROJECT_DIR$/gettingcontent/gettingcontent.iml" filepath="$PROJECT_DIR$/gettingcontent/gettingcontent.iml" />
       <module fileurl="file://$PROJECT_DIR$/intents/intents.iml" filepath="$PROJECT_DIR$/intents/intents.iml" />
