@@ -5,7 +5,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="G:\Soft\AndroidStudio\gradle\gradle-2.4" />
+        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.4" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/flawors" />
             <option value="$PROJECT_DIR$/fragments" />
             <option value="$PROJECT_DIR$/gettingcontent" />
+            <option value="$PROJECT_DIR$/gridview" />
             <option value="$PROJECT_DIR$/intents" />
             <option value="$PROJECT_DIR$/layouts" />
             <option value="$PROJECT_DIR$/lollipopmaterial" />

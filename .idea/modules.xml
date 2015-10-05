@@ -3,18 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android4material/android4material.iml" filepath="$PROJECT_DIR$/android4material/android4material.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_samples.iml" filepath="$PROJECT_DIR$/android_samples.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidnewtabs/androidnewtabs.iml" filepath="$PROJECT_DIR$/androidnewtabs/androidnewtabs.iml" />
       <module fileurl="file://$PROJECT_DIR$/animation/animation.iml" filepath="$PROJECT_DIR$/animation/animation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/async/async.iml" filepath="$PROJECT_DIR$/async/async.iml" />
       <module fileurl="file://$PROJECT_DIR$/asyncapploader/asyncapploader.iml" filepath="$PROJECT_DIR$/asyncapploader/asyncapploader.iml" />
       <module fileurl="file://$PROJECT_DIR$/asyncprogressdialog/asyncprogressdialog.iml" filepath="$PROJECT_DIR$/asyncprogressdialog/asyncprogressdialog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/com.nr.android.examples.iml" filepath="$PROJECT_DIR$/com.nr.android.examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/customtab/customtab.iml" filepath="$PROJECT_DIR$/customtab/customtab.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialogs/dialogs.iml" filepath="$PROJECT_DIR$/dialogs/dialogs.iml" />
       <module fileurl="file://$PROJECT_DIR$/flawors/flawors.iml" filepath="$PROJECT_DIR$/flawors/flawors.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragments/fragments.iml" filepath="$PROJECT_DIR$/fragments/fragments.iml" />
       <module fileurl="file://$PROJECT_DIR$/gettingcontent/gettingcontent.iml" filepath="$PROJECT_DIR$/gettingcontent/gettingcontent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gridview/gridview.iml" filepath="$PROJECT_DIR$/gridview/gridview.iml" />
       <module fileurl="file://$PROJECT_DIR$/intents/intents.iml" filepath="$PROJECT_DIR$/intents/intents.iml" />
       <module fileurl="file://$PROJECT_DIR$/layouts/layouts.iml" filepath="$PROJECT_DIR$/layouts/layouts.iml" />
       <module fileurl="file://$PROJECT_DIR$/lollipopmaterial/lollipopmaterial.iml" filepath="$PROJECT_DIR$/lollipopmaterial/lollipopmaterial.iml" />
