@@ -17,7 +17,7 @@ public class ProgressDialogFragment extends DialogFragment {
     public static final String MESSAGE_ID = "MESSAGE";
 
     private ProgressDialog mProgressDialog;
-    private IProgressDialogCallback mCallback;
+    private IProgressControlCallback mCallback;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class ProgressDialogFragment extends DialogFragment {
     public void onCancel(DialogInterface dialog) {
         super.onCancel(dialog);
         if(mCallback != null){
-            mCallback.onDialogCancel();
+            mCallback.onProgressControlCancel();
         }
     }
 
@@ -46,7 +46,7 @@ public class ProgressDialogFragment extends DialogFragment {
         mProgressDialog.setProgress(progress);
     }
 
-    void setCallback(IProgressDialogCallback callback) {
+    void setCallback(IProgressControlCallback callback) {
         mCallback = callback;
     }
 }

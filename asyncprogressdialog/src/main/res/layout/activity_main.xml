@@ -19,4 +19,19 @@
         android:layout_height="wrap_content"
         android:text="run task with progress"/>
 
+    <Button
+        android:id="@+id/runTaskWithBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="run task with progress bar"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        style="?android:attr/progressBarStyleHorizontal"
+        />
+
 </LinearLayout>
