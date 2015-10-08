@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/gettingcontent/gettingcontent.iml" filepath="$PROJECT_DIR$/gettingcontent/gettingcontent.iml" />
       <module fileurl="file://$PROJECT_DIR$/gridview/gridview.iml" filepath="$PROJECT_DIR$/gridview/gridview.iml" />
       <module fileurl="file://$PROJECT_DIR$/intents/intents.iml" filepath="$PROJECT_DIR$/intents/intents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layoutanimation/layoutanimation.iml" filepath="$PROJECT_DIR$/layoutanimation/layoutanimation.iml" />
       <module fileurl="file://$PROJECT_DIR$/layouts/layouts.iml" filepath="$PROJECT_DIR$/layouts/layouts.iml" />
       <module fileurl="file://$PROJECT_DIR$/lollipopmaterial/lollipopmaterial.iml" filepath="$PROJECT_DIR$/lollipopmaterial/lollipopmaterial.iml" />
       <module fileurl="file://$PROJECT_DIR$/masterdetails/masterdetails.iml" filepath="$PROJECT_DIR$/masterdetails/masterdetails.iml" />
@@ -26,6 +27,7 @@
       <module fileurl="file://$PROJECT_DIR$/notifications/notifications.iml" filepath="$PROJECT_DIR$/notifications/notifications.iml" />
       <module fileurl="file://$PROJECT_DIR$/pager/pager.iml" filepath="$PROJECT_DIR$/pager/pager.iml" />
       <module fileurl="file://$PROJECT_DIR$/preferences/preferences.iml" filepath="$PROJECT_DIR$/preferences/preferences.iml" />
+      <module fileurl="file://$PROJECT_DIR$/propertyanimation/propertyanimation.iml" filepath="$PROJECT_DIR$/propertyanimation/propertyanimation.iml" />
       <module fileurl="file://$PROJECT_DIR$/resources/resources.iml" filepath="$PROJECT_DIR$/resources/resources.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofitexample/retrofitexample.iml" filepath="$PROJECT_DIR$/retrofitexample/retrofitexample.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrosample/retrosample.iml" filepath="$PROJECT_DIR$/retrosample/retrosample.iml" />

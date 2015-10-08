@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:id="@+id/llt"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txt"
+        android:text="Hello World!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnFadeOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fade out" />
+
+    <Button
+        android:id="@+id/btnFadeOutIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fade out / in : seq"/>
+
+    <Button
+        android:id="@+id/btnFadeOutInBuilder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fade out / in : builder"/>
+
+    <Button
+        android:id="@+id/btnFadeOutInFromFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fade out / in : xml"/>
+
+    <Button
+        android:id="@+id/btnPropertyValueHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="property value holder"/>
+
+    <Button
+        android:id="@+id/btnViewPropertyAnimator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="view property animator"/>
+
+    <Button
+        android:id="@+id/btnCustonEvaluator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Custom evaluator"/>
+
+    <Button
+        android:id="@+id/btnKeyFrames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="key frames"/>
+</LinearLayout>

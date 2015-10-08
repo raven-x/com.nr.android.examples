@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/gettingcontent" />
             <option value="$PROJECT_DIR$/gridview" />
             <option value="$PROJECT_DIR$/intents" />
+            <option value="$PROJECT_DIR$/layoutanimation" />
             <option value="$PROJECT_DIR$/layouts" />
             <option value="$PROJECT_DIR$/lollipopmaterial" />
             <option value="$PROJECT_DIR$/masterdetails" />
@@ -33,6 +34,7 @@
             <option value="$PROJECT_DIR$/notifications" />
             <option value="$PROJECT_DIR$/pager" />
             <option value="$PROJECT_DIR$/preferences" />
+            <option value="$PROJECT_DIR$/propertyanimation" />
             <option value="$PROJECT_DIR$/resources" />
             <option value="$PROJECT_DIR$/retrofitexample" />
             <option value="$PROJECT_DIR$/retrosample" />
