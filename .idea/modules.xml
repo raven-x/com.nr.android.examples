@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/async/async.iml" filepath="$PROJECT_DIR$/async/async.iml" />
       <module fileurl="file://$PROJECT_DIR$/asyncapploader/asyncapploader.iml" filepath="$PROJECT_DIR$/asyncapploader/asyncapploader.iml" />
       <module fileurl="file://$PROJECT_DIR$/asyncprogressdialog/asyncprogressdialog.iml" filepath="$PROJECT_DIR$/asyncprogressdialog/asyncprogressdialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crossfadeviews/crossfadeviews.iml" filepath="$PROJECT_DIR$/crossfadeviews/crossfadeviews.iml" />
       <module fileurl="file://$PROJECT_DIR$/customtab/customtab.iml" filepath="$PROJECT_DIR$/customtab/customtab.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialogs/dialogs.iml" filepath="$PROJECT_DIR$/dialogs/dialogs.iml" />
       <module fileurl="file://$PROJECT_DIR$/flawors/flawors.iml" filepath="$PROJECT_DIR$/flawors/flawors.iml" />
@@ -35,6 +36,7 @@
       <module fileurl="file://$PROJECT_DIR$/services/services.iml" filepath="$PROJECT_DIR$/services/services.iml" />
       <module fileurl="file://$PROJECT_DIR$/tabs/tabs.iml" filepath="$PROJECT_DIR$/tabs/tabs.iml" />
       <module fileurl="file://$PROJECT_DIR$/tabwithactivitiesexample/tabwithactivitiesexample.iml" filepath="$PROJECT_DIR$/tabwithactivitiesexample/tabwithactivitiesexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transitions/transitions.iml" filepath="$PROJECT_DIR$/transitions/transitions.iml" />
       <module fileurl="file://$PROJECT_DIR$/webbrowser/webbrowser.iml" filepath="$PROJECT_DIR$/webbrowser/webbrowser.iml" />
     </modules>
   </component>
