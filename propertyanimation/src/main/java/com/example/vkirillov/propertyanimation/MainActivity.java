@@ -6,6 +6,7 @@ import android.animation.Keyframe;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -81,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 keyFramesAnimation();
+            }
+        });
+        btn = (Button) findViewById(R.id.btnTxtBoxAndButton);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, textbox_and_button.class);
+                startActivity(intent);
             }
         });
     }

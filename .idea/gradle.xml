@@ -18,13 +18,16 @@
             <option value="$PROJECT_DIR$/asyncapploader" />
             <option value="$PROJECT_DIR$/asyncprogressdialog" />
             <option value="$PROJECT_DIR$/crossfadeviews" />
+            <option value="$PROJECT_DIR$/customlayout" />
             <option value="$PROJECT_DIR$/customrecyclerlayout" />
             <option value="$PROJECT_DIR$/customtab" />
             <option value="$PROJECT_DIR$/dialogs" />
             <option value="$PROJECT_DIR$/flawors" />
             <option value="$PROJECT_DIR$/floatingbutton" />
             <option value="$PROJECT_DIR$/fragments" />
+            <option value="$PROJECT_DIR$/gesture" />
             <option value="$PROJECT_DIR$/gettingcontent" />
+            <option value="$PROJECT_DIR$/gm" />
             <option value="$PROJECT_DIR$/gridview" />
             <option value="$PROJECT_DIR$/intents" />
             <option value="$PROJECT_DIR$/layoutanimation" />
@@ -32,6 +35,7 @@
             <option value="$PROJECT_DIR$/lollipopmaterial" />
             <option value="$PROJECT_DIR$/masterdetails" />
             <option value="$PROJECT_DIR$/model" />
+            <option value="$PROJECT_DIR$/multitouch" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/notifications" />
             <option value="$PROJECT_DIR$/pager" />
@@ -41,9 +45,12 @@
             <option value="$PROJECT_DIR$/retrofitexample" />
             <option value="$PROJECT_DIR$/retrosample" />
             <option value="$PROJECT_DIR$/roboguiceinject" />
+            <option value="$PROJECT_DIR$/screenwidget" />
+            <option value="$PROJECT_DIR$/sensors" />
             <option value="$PROJECT_DIR$/services" />
             <option value="$PROJECT_DIR$/tabs" />
             <option value="$PROJECT_DIR$/tabwithactivitiesexample" />
+            <option value="$PROJECT_DIR$/touch" />
             <option value="$PROJECT_DIR$/transitions" />
             <option value="$PROJECT_DIR$/webbrowser" />
           </set>
