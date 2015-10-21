@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
- * Custom layout
+ * Simple, but totally custom layout which has the following format:
+ *    _____
+ *   |ima |  Title
+ *   |_ge_|  Message
  */
 public class CustomViewLayout extends ViewGroup {
 
@@ -27,11 +27,6 @@ public class CustomViewLayout extends ViewGroup {
         initializeViews(context);
     }
 
-    /**
-     *
-     * @param context
-     * @param attrs
-     */
     public CustomViewLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         initializeViews(context);
@@ -51,7 +46,8 @@ public class CustomViewLayout extends ViewGroup {
     private void initializeViews(Context context){
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.custom_layout, this, true);
+        inflater.inflate(R.layout.full_custom_layout, this, true);
+
         mImageView = (ImageView) findViewById(R.id.photo);
         mTitle = (TextView) findViewById(R.id.title);
         mMessage = (TextView) findViewById(R.id.message);
@@ -59,20 +55,20 @@ public class CustomViewLayout extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //TODO
-        //1. Setup constraints - initial sum of paddings
+        //1. Setup constraints - initial sum of paddings,
+        //extra space that has been used by the parent
         int widthConstraint = getPaddingLeft() + getPaddingRight();
         int heightConstraint = getPaddingTop() + getPaddingBottom();
-        //Required view width and height
+        //Result width and height which will be passed as view dimensions
         int width = 0;
         int height = 0;
 
         //2. Measure photo, which has constant size
         measureChildWithMargins(mImageView,
                 widthMeasureSpec,
-                widthConstraint,
+                widthConstraint, //extra space that has been used by the parent horizontally
                 heightMeasureSpec,
-                heightConstraint);
+                heightConstraint); //extra space that has been used by the parent vertically
 
         //3. Update the constrains with measured values
         widthConstraint += mImageView.getMeasuredWidth();
@@ -107,6 +103,7 @@ public class CustomViewLayout extends ViewGroup {
         width += Math.max(mTitle.getMeasuredWidth(), mMessage.getMeasuredWidth());
         height = Math.max(mTitle.getMeasuredHeight() + mMessage.getMeasuredHeight(), height);
 
+        //Must be called
         setMeasuredDimension(
                 resolveSize(width, widthMeasureSpec),
                 resolveSize(height, heightMeasureSpec));
@@ -117,24 +114,51 @@ public class CustomViewLayout extends ViewGroup {
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int leftEdge = l + paddingLeft;
+        int topEdge = 0;
 
         if(mImageView.getVisibility() != GONE){
-            MarginLayoutParams lp = (MarginLayoutParams) mImageView.getLayoutParams();
-            int left = l + paddingLeft + lp.leftMargin;
-            int top = t + paddingTop + lp.topMargin;
+            int leftMargin = 0, rightMargin = 0, topMargin = 0;
+            if(mImageView.getLayoutParams() instanceof MarginLayoutParams){
+                MarginLayoutParams lp = (MarginLayoutParams) mImageView.getLayoutParams();
+                leftMargin = lp.leftMargin;
+                topMargin = lp.topMargin;
+                rightMargin = lp.rightMargin;
+            }
+            int left = l + paddingLeft + leftMargin;
+            int top = t + paddingTop + topMargin;
             int right = left + mImageView.getMeasuredWidth();
             int bottom = top + mImageView.getMeasuredHeight();
             mImageView.layout(left, top, right, bottom);
-            leftEdge = right + lp.rightMargin;
+            leftEdge = right + rightMargin;
         }
 
         if(mTitle.getVisibility() != GONE){
-            MarginLayoutParams lp = (MarginLayoutParams) mTitle.getLayoutParams();
-            int left = leftEdge + lp.leftMargin;
-            int top = t + paddingTop + lp.topMargin;
+            int leftMargin = 0, topMargin = 0;
+            if(mImageView.getLayoutParams() instanceof MarginLayoutParams){
+                MarginLayoutParams lp = (MarginLayoutParams) mImageView.getLayoutParams();
+                leftMargin = lp.leftMargin;
+                topMargin = lp.topMargin;
+            }
+            int left = leftEdge + leftMargin;
+            int top = t + paddingTop + topMargin;
             int right = left + mTitle.getMeasuredWidth();
             int bottom = top + mTitle.getMeasuredHeight();
+            topEdge = bottom;
             mTitle.layout(left, top ,right, bottom);
+        }
+
+        if(mMessage.getVisibility() != GONE){
+            int leftMargin = 0, topMargin = 0;
+            if(mImageView.getLayoutParams() instanceof MarginLayoutParams){
+                MarginLayoutParams lp = (MarginLayoutParams) mImageView.getLayoutParams();
+                leftMargin = lp.leftMargin;
+                topMargin = lp.topMargin;
+            }
+            int left = leftEdge + leftMargin;
+            int top = topEdge + topMargin;
+            int right = left + mMessage.getMeasuredWidth();
+            int bottom = top + mMessage.getMeasuredHeight();
+            mMessage.layout(left, top, right, bottom);
         }
     }
 
@@ -146,35 +170,27 @@ public class CustomViewLayout extends ViewGroup {
             int parentHeightMeasureSpec,
             int heightUsed) {
 
-//        if(child.getLayoutParams() instanceof MarginLayoutParams){
-//            MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-//
-//            int childWidthMeasureSpec = getChildMeasureSpec(
-//                    parentWidthMeasureSpec,
-//                    widthUsed + lp.leftMargin + lp.rightMargin,
-//                    lp.width);
-//
-//            int childHeightMeasureSpec = getChildMeasureSpec(
-//                    parentHeightMeasureSpec,
-//                    heightUsed + lp.topMargin + lp.bottomMargin,
-//                    lp.height);
-//
-//            child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
-//        }else{
-            LayoutParams lp = child.getLayoutParams();
-            int childWidthMeasureSpec = getChildMeasureSpec(
-                    parentWidthMeasureSpec,
-                    widthUsed,
-                    lp.width);
+        int leftMargin = 0, rightMargin = 0, topMargin = 0, bottomMargin = 0;
 
-            int childHeightMeasureSpec = getChildMeasureSpec(
-                    parentHeightMeasureSpec,
-                    heightUsed,
-                    lp.height);
+        if(child.getLayoutParams() instanceof MarginLayoutParams){
+            MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
+            leftMargin = lp.leftMargin;
+            rightMargin = lp.rightMargin;
+            topMargin = lp.topMargin;
+            bottomMargin = lp.bottomMargin;
+        }
 
-            child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
-//        }
+        LayoutParams lp = child.getLayoutParams();
+        int childWidthMeasureSpec = getChildMeasureSpec(
+                parentWidthMeasureSpec,
+                widthUsed + leftMargin + rightMargin,
+                lp.width);
 
+        int childHeightMeasureSpec = getChildMeasureSpec(
+                parentHeightMeasureSpec,
+                heightUsed + topMargin + bottomMargin,
+                lp.height);
 
+        child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
     }
 }
