@@ -6,9 +6,9 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -21,39 +21,56 @@ import android.widget.FrameLayout;
  */
 public class DraggablePanelLayout extends FrameLayout {
     private static final float PARALLAX_FACTOR = 0.2f;
+    private int BOTTOM_PANEL_PEEK_HEIGHT = 64;
+
+    private int mBottomPanelPeekHeight;
     private float mParallaxFactor;
     private View mBottomPanel;
     private View mSlidingPanel;
-    private int mBottomPanelPeekHeight = 64;
     private boolean mTouching;
     private float mTouchY;
     /**true, if sliding panel is mOpened*/
     private boolean mOpened;
     private VelocityTracker mVelocityTracker;
+    private final DraggableAnimatorListenerAdapter mAnimatorListener = new DraggableAnimatorListenerAdapter();
 
     public DraggablePanelLayout(Context context) {
         super(context);
-        init();
     }
 
     public DraggablePanelLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        initAttributes(attrs);
     }
 
     public DraggablePanelLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        initAttributes(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public DraggablePanelLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+        mParallaxFactor = PARALLAX_FACTOR;
+        initAttributes(attrs);
     }
 
-    private void init(){
-        mParallaxFactor = PARALLAX_FACTOR;
+    private void initAttributes(AttributeSet attrs){
+        TypedArray arr = getContext()
+                .getTheme()
+                .obtainStyledAttributes(attrs, R.styleable.DraggablePanelLayout, 0, 0);
+        try{
+            mParallaxFactor = arr.getFloat(R.styleable.DraggablePanelLayout_parallax_factor, PARALLAX_FACTOR);
+            if(mParallaxFactor < 0.1f || mParallaxFactor > 0.9f){
+                mParallaxFactor = PARALLAX_FACTOR;
+            }
+
+            mBottomPanelPeekHeight = arr.getDimensionPixelSize(R.styleable.DraggablePanelLayout_bottom_panel_height,
+                    BOTTOM_PANEL_PEEK_HEIGHT);
+
+        }finally {
+            arr.recycle();
+        }
     }
 
     @Override
@@ -111,7 +128,6 @@ public class DraggablePanelLayout extends FrameLayout {
 
             //Translate and parallax sliding panel
             mSlidingPanel.setTranslationY(translation);
-            Log.d("dpl", "sliding panel translation: " + translation);
 
             //Translate and parallax bottom panel
             float bottomPanelTranslation;
@@ -121,7 +137,6 @@ public class DraggablePanelLayout extends FrameLayout {
                 bottomPanelTranslation = translation * mParallaxFactor;
             }
             mBottomPanel.setTranslationY(bottomPanelTranslation);
-            Log.d("dpl", "bottom panel translation: " + bottomPanelTranslation);
         }
     }
 
@@ -211,6 +226,7 @@ public class DraggablePanelLayout extends FrameLayout {
     }
 
     private void animate(boolean opening, float distY, long duration){
+        mAnimatorListener.setOpening(opening);
         ObjectAnimator slidingPanelAnimator = ObjectAnimator.ofFloat(
                 mSlidingPanel, View.TRANSLATION_Y, mSlidingPanel.getTranslationY(),
                 mSlidingPanel.getTranslationY() + distY);
@@ -221,7 +237,7 @@ public class DraggablePanelLayout extends FrameLayout {
         set.playTogether(slidingPanelAnimator, bottomPanelAnimator);
         set.setDuration(duration);
         set.setInterpolator(new DecelerateInterpolator());
-        set.addListener(new AL(opening));
+        set.addListener(mAnimatorListener);
         set.start();
     }
 
@@ -236,11 +252,11 @@ public class DraggablePanelLayout extends FrameLayout {
         mBottomPanel.setVisibility(opened ? GONE : VISIBLE);
     }
 
-    private class AL extends AnimatorListenerAdapter{
+    private final class DraggableAnimatorListenerAdapter extends AnimatorListenerAdapter{
 
         private boolean opening;
 
-        public AL(boolean opening){
+        public void setOpening(boolean opening){
             this.opening = opening;
         }
 
@@ -264,9 +280,5 @@ public class DraggablePanelLayout extends FrameLayout {
 
         }
 
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-
-        }
     }
 }

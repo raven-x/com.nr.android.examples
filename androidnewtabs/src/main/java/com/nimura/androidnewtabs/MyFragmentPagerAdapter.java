@@ -38,7 +38,7 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * In case we need a custom tab icon layout
+     * In case we need a custom tab header layout
      * just add a tab icon creation method for convenience
      * @param position
      * @return
