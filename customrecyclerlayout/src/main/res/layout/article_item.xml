@@ -13,7 +13,7 @@
 
     <TextView
         android:id="@+id/article_title"
-        style="@style/TextAppearance.AppCompat.Large"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
