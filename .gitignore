@@ -10,3 +10,6 @@
 /transitions/transitions.iml
 /customrecyclerlayout/*.iml
 *.iml
+/alienrobots/*.iml
+/gridview/*.iml
+/*/*.iml
