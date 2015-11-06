@@ -1,10 +1,16 @@
 package com.example.vkirillov.endlessrecycler;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.vkirillov.endlessrecycler.model.Model;
 import com.example.vkirillov.endlessrecycler.view.ILoadListener;
@@ -13,6 +19,8 @@ import com.example.vkirillov.endlessrecycler.view.RecyclerAdapter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
 public class MainActivity extends AppCompatActivity {
     private final List<Model> mModel = new ArrayList<>();
@@ -27,14 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
         handler = new Handler();
 
-        mModel.addAll(generate(0, 15));
-
         mRecyclerView = (RecyclerView) findViewById(R.id.endlessRecycler);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new RecyclerAdapter(mRecyclerView, mModel);
         adapter.setVisibleThreshold(2);
         adapter.setOnLoadListener(new OnLoadListener());
+
+        mModel.addAll(generate(0, 15));
         mRecyclerView.setAdapter(adapter);
     }
 
