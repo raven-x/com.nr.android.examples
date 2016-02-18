@@ -27,10 +27,19 @@
             android:exported="false" >
         </service>
         <service
-            android:name=".BindableServiceExtendingBinder"
+            android:name=".BindableService"
             android:enabled="true"
             android:exported="true" >
         </service>
+        <!-- The service known for intent filter action name, not for component -->
+        <service android:name=".DownloadService">
+            <intent-filter>
+                <action android:name="com.nr.ACTION_DOWNLOAD"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+        </service>
+        <service android:name=".SampleIntentService"/>
+
     </application>
 
 </manifest>

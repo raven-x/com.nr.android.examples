@@ -18,7 +18,7 @@ public class MultithreadedService extends Service {
         @Override
         public void handleMessage(Message msg) {
             // Normally we would do some work here, like download a file.
-            // For our sample, we just sleep for 5 seconds.
+            // For our sample, we just sleep for 5 seconds
             long endTime = System.currentTimeMillis() + 5*1000;
             while (System.currentTimeMillis() < endTime) {
                 synchronized (this) {

@@ -1,15 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nimura.preferences.pref_content"
-    android:orientation="vertical"
+    android:columnCount="2"
     android:padding="20dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,12 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,6 +27,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp" />
-    </LinearLayout>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnSetPref"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:text="set pref"
+            />
+
+</GridLayout>

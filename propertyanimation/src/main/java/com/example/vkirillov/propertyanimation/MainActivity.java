@@ -3,15 +3,13 @@ package com.example.vkirillov.propertyanimation;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.Keyframe;
-import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.graphics.PointF;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
@@ -89,6 +87,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, textbox_and_button.class);
+                startActivity(intent);
+            }
+        });
+        btn = (Button) findViewById(R.id.btnOpenAnimatedFragmentActivity);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AnimatedFrameActivity.class);
                 startActivity(intent);
             }
         });
