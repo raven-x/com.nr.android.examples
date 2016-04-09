@@ -35,7 +35,7 @@ public abstract class AbstractTaskWithProgressDialog<Params, Result>
      * Creates a new task with progress bar style dialog
      * @param retainedFragment retained fragment to save activity reference
      * @param tag unique fragment tag
-     * @param cancelable is task cancelable or not
+     * @param cancelable whether task cancelable or not
      * @param maxValue progress bar upper bound
      */
     public AbstractTaskWithProgressDialog(RetainedTaskFragment retainedFragment,

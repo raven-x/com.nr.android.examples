@@ -1,6 +1,8 @@
 package com.nimura.preferences;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +14,18 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private SharedPreferencesThread mSpt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PrefContentFragment mpf = (PrefContentFragment) getFragmentManager()
+                .findFragmentById(R.id.prefContentFragment);
+        //Reference to UI thread handler
+        mSpt = new SharedPreferencesThread(this, mpf.getUiHandler());
+        mSpt.start();
+        mpf.setSharedPreferencesThread(mSpt);
     }
 
     @Override
@@ -42,5 +50,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSpt.quitSafely();
     }
 }

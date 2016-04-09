@@ -3,6 +3,8 @@ package com.nimura.services;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -58,7 +60,12 @@ public class HelloIntentService extends IntentService {
      * parameters.
      */
     private void handleActionFoo(String param1, String param2) {
-        Toast.makeText(this, "Service called", Toast.LENGTH_SHORT).show();
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(HelloIntentService.this, "Service called", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
